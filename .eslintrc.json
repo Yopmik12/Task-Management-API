@@ -8,7 +8,7 @@
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "plugins": ["import", "editorconfig"],
+  "plugins": ["import"],
   "rules": {
     "indent": ["error", 2],
     "semi": ["error", "always"],

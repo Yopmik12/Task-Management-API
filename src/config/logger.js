@@ -7,12 +7,15 @@ const logger = winston.createLogger({
     CONFIG_REFERENCE.ENVIRONMENT === 'development'
       ? winston.format.colorize()
       : winston.format.uncolorize(),
-    winston.format.errors(
-      { stack: true },
-      winston.format.splat(),
-      winston.format.printf(({ level, message, stack }) => `${level}: ${message} ${stack ?? ''}`)
-    )
-  )
+    winston.format.errors({ stack: true }),
+    winston.format.splat(),
+    winston.format.printf(({ level, message, stack }) => `${level}: ${message} ${stack ?? ''}`),
+  ),
+  transports: [
+    new winston.transports.Console({
+      stderrLevels: ['error'],
+    }),
+  ],
 });
 
 module.exports = logger;

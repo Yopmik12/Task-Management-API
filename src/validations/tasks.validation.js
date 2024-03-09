@@ -5,4 +5,5 @@ module.exports = {
     title: Joi.string().required(),
     description: Joi.string().required(),
   }),
+  location: 'body',
 };

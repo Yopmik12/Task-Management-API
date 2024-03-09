@@ -4,7 +4,7 @@ const cors = require('cors');
 const xss = require('xss-clean');
 const compression = require('compression');
 const morgan = require('./config/winston');
-
+const routes = require('./config/routes');
 const { CONFIG_REFERENCE } = require('./config/constants/config-constants');
 
 const app = express();
@@ -39,8 +39,6 @@ app.use(compression());
 app.use(cors());
 app.options('*', cors());
 
-app.get('/test', (req, res) => {
-  res.send('Hello World!!');
-});
+app.use('/api', routes);
 
 module.exports = app;

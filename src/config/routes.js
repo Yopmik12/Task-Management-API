@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Route();
 
-const DefaultRoutes = [];
+const DefaultRoutes = [{}];
 
 DefaultRoutes.forEach((el) => {
   router.use(el.path, el.route);

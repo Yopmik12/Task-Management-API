@@ -1,11 +1,10 @@
-const morgan = require("morgan");
-const logger = require("./logger");
-const { CONFIG_REFERENCE } = require("./constants/config-constants");
+const morgan = require('morgan');
+const logger = require('./logger');
+const { CONFIG_REFERENCE } = require('./constants/config-constants');
 
-morgan.token("message", (req, res) => res.locals.errorMessage || "");
+morgan.token('message', (req, res) => res.locals.errorMessage || '');
 
-const getIpFormat = () =>
-  CONFIG_REFERENCE.ENVIRONMENT === "production" ? ":remote-addr - " : "";
+const getIpFormat = () => (CONFIG_REFERENCE.ENVIRONMENT === 'production' ? ':remote-addr - ' : '');
 
 const successResponseFormat = `${getIpFormat()}:method :url :status - response-time ms`;
 const errorResponseFormat = `${getIpFormat()}:method :url :status - response-time ms - message: :message`;

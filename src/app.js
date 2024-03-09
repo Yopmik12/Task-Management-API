@@ -10,6 +10,7 @@ const { CONFIG_REFERENCE } = require('./config/constants/config-constants');
 const app = express();
 
 require('dotenv').config();
+// require('./config/database-connection');
 
 if (['development', 'staging', 'test'].includes(CONFIG_REFERENCE.ENVIRONMENT)) {
   app.use(morgan.errorHandler);
@@ -39,7 +40,7 @@ app.use(cors());
 app.options('*', cors());
 
 app.get('/test', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello World!!');
 });
 
 module.exports = app;
